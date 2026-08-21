@@ -1,9 +1,9 @@
-/* KOOL&TECH TEST */
+/* KOOL&TECH GLOBAL */
 
 body{
-    outline: 5px solid re*;
+    outline:5px solid red !important;
 }
 
 header a:hover{
-    color:#f7*398 !important;
+    color:#f74398 !important;
 }
