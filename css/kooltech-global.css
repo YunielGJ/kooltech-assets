@@ -889,3 +889,154 @@ button:focus-visible,
         animation-iteration-count: 1 !important;
     }
 }
+/* ==========================================================
+   KOOL&TECH | PREMIUM DROPDOWN ITEM EFFECT
+   Dark glass background + pink vertical indicator
+   ========================================================== */
+
+/* Estado normal de cada opción del submenú */
+header .dropdown-menu .dropdown-item,
+#top_menu .dropdown-menu .dropdown-item {
+    position: relative !important;
+    isolation: isolate;
+
+    display: block;
+
+    margin: 4px 0 !important;
+    padding: 12px 16px 12px 19px !important;
+
+    color: #627CE7 !important;
+    font-weight: 600;
+
+    background: #02030C !important;
+
+    border: 1px solid transparent !important;
+    border-radius: 9px !important;
+
+    box-shadow: none !important;
+
+    overflow: hidden;
+
+    transition:
+        color 0.35s ease,
+        background 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease !important;
+}
+
+
+/* Barra rosa lateral */
+header .dropdown-menu .dropdown-item::before,
+#top_menu .dropdown-menu .dropdown-item::before {
+    content: "";
+
+    position: absolute;
+    left: 5px;
+    top: 50%;
+
+    width: 3px;
+    height: 0;
+
+    border-radius: 999px;
+
+    background: linear-gradient(
+        180deg,
+        #F74398 0%,
+        #D85BFF 100%
+    );
+
+    transform: translateY(-50%);
+
+    opacity: 0;
+
+    box-shadow:
+        0 0 6px rgba(247, 67, 152, 0.75),
+        0 0 14px rgba(247, 67, 152, 0.38);
+
+    transition:
+        height 0.35s cubic-bezier(.22, 1, .36, 1),
+        opacity 0.25s ease !important;
+
+    pointer-events: none;
+}
+
+
+/* Efecto premium al pasar el cursor */
+header .dropdown-menu .dropdown-item:hover,
+header .dropdown-menu .dropdown-item:focus,
+#top_menu .dropdown-menu .dropdown-item:hover,
+#top_menu .dropdown-menu .dropdown-item:focus {
+    color: #FFFFFF !important;
+
+    background: linear-gradient(
+        110deg,
+        rgba(31, 65, 105, 0.96),
+        rgba(24, 55, 91, 0.94)
+    ) !important;
+
+    border-color: rgba(98, 124, 231, 0.33) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.07),
+        0 8px 18px rgba(0, 0, 0, 0.20),
+        0 0 16px rgba(98, 124, 231, 0.10) !important;
+
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.12);
+}
+
+
+/* Muestra la barra rosa durante hover */
+header .dropdown-menu .dropdown-item:hover::before,
+header .dropdown-menu .dropdown-item:focus::before,
+#top_menu .dropdown-menu .dropdown-item:hover::before,
+#top_menu .dropdown-menu .dropdown-item:focus::before {
+    height: 58%;
+    opacity: 1;
+}
+
+
+/* Opción correspondiente a la página actual */
+header .dropdown-menu .dropdown-item.active,
+header .dropdown-menu .dropdown-item[aria-current="page"],
+#top_menu .dropdown-menu .dropdown-item.active,
+#top_menu .dropdown-menu .dropdown-item[aria-current="page"] {
+    color: #FFFFFF !important;
+
+    background: linear-gradient(
+        110deg,
+        rgba(34, 70, 112, 0.98),
+        rgba(25, 57, 94, 0.96)
+    ) !important;
+
+    border-color: rgba(98, 124, 231, 0.42) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 0 18px rgba(98, 124, 231, 0.13) !important;
+}
+
+
+/* Barra permanente en la opción activa */
+header .dropdown-menu .dropdown-item.active::before,
+header .dropdown-menu .dropdown-item[aria-current="page"]::before,
+#top_menu .dropdown-menu .dropdown-item.active::before,
+#top_menu .dropdown-menu .dropdown-item[aria-current="page"]::before {
+    height: 58%;
+    opacity: 1;
+}
+
+
+/* Elimina cualquier línea horizontal heredada del menú principal */
+header .dropdown-menu .dropdown-item::after,
+#top_menu .dropdown-menu .dropdown-item::after {
+    display: none !important;
+}
+
+
+/* Accesibilidad para navegación con teclado */
+header .dropdown-menu .dropdown-item:focus-visible,
+#top_menu .dropdown-menu .dropdown-item:focus-visible {
+    outline: 2px solid #F74398 !important;
+    outline-offset: 2px !important;
+}
