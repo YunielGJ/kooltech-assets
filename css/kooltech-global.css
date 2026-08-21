@@ -1,3 +1,702 @@
-html{
-    border:10px solid red !important;
+/* ==========================================================
+   KOOL&TECH | GLOBAL PREMIUM DESIGN SYSTEM
+   Version 1.0
+   ========================================================== */
+
+
+/* ==========================================================
+   1. BRAND VARIABLES
+   ========================================================== */
+
+:root {
+    --kt-pink: #f74398;
+    --kt-blue: #7b8cff;
+    --kt-teal: #28d7c0;
+    --kt-navy: #052950;
+
+    --kt-white: #ffffff;
+    --kt-glass: rgba(255, 255, 255, 0.06);
+    --kt-border: rgba(123, 140, 255, 0.20);
+
+    --kt-gradient: linear-gradient(
+        110deg,
+        var(--kt-pink),
+        var(--kt-blue),
+        var(--kt-teal)
+    );
+
+    --kt-transition: 0.35s cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* ==========================================================
+   2. MAIN NAVIGATION
+   ========================================================== */
+
+/*
+   Targets common Odoo navigation structures.
+   Does not apply the effect to buttons.
+*/
+
+header .nav-link:not(.btn),
+header nav a:not(.btn),
+#top_menu > .nav-item > .nav-link {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    transition:
+        color var(--kt-transition),
+        background-color var(--kt-transition),
+        border-color var(--kt-transition),
+        box-shadow var(--kt-transition);
+}
+
+
+/* Animated line below navigation items */
+
+header .nav-link:not(.btn)::af*er,
+header nav a:not(.btn)::after,*#top_menu > .nav-item > .nav-link:*after {
+    content: "";
+
+    posi*ion: absolute;
+    left: 50%;
+    *ottom: 3px;
+
+    width: 0;
+    hei*ht: 2px;
+
+    border-radius: 10px;*
+    background: var(--kt-gradient);
+
+    transform: translateX(-50%);
+
+    box-shadow:
+        0 0 8px rgba(247, 67, 152, 0.50),
+        0 0 14px rgba(123, 140, 255, 0.25);
+
+    transition: width var(--kt-transition);
+}
+
+
+/* Navigation hover */
+
+header .nav-link:not(.btn):hove*,
+header nav a:not(.btn):hover,
+#t*p_menu > .nav-item > .nav-link:hov*r {
+    color: var(--kt-white) !im*ortant;
+
+    background: linear-gr*dient(
+        110deg,
+        rgb*(247, 67, 152, 0.09),
+        rgba*123, 140, 255, 0.05)
+    ) !import*nt;
+
+    border-color: rgba(123, 1*0, 255, 0.18) !important;
+
+    box*shadow:
+        inset 0 1px 0 rgba*255, 255, 255, 0.08),
+        0 8p* 22px rgba(0, 0, 0, 0.18);
+}
+
+
+header .nav-link:not(.btn):hover::after,
+header nav a:not(.btn):hover::after,
+#top_menu > .nav-item > .nav-link:hover::after {
+    width: calc(100% - 24px);
+}
+
+
+/* Active page */
+
+header .nav-link.active:not(.bt*),
+header .nav-item.active > .nav-*ink,
+#top_menu > .nav-item > .nav-*ink.active,
+#top_menu > .nav-item.*ctive > .nav-link {
+    color: var*--kt-white) !important;
+
+    backg*ound: rgba(255, 255, 255, 0.035) !*mportant;
+
+    border-color: rgba(*55, 255, 255, 0.30) !important;
+
+ *  box-shadow:
+        inset 0 1px * rgba(255, 255, 255, 0.08),
+        0 6px 18px rgba(0, 0, 0, 0.16);
+}
+
+
+header .nav-link.active:not(.btn)::after,
+header .nav-item.active > .nav-link::after,
+#top_menu > .nav-item > .nav-link.active::after,
+#top_menu > .nav-item.active > .nav-link::after {
+    width: calc(100% - 24px);
+    opacity: 0.85;
+}
+
+
+/* Prevent effects from changing logo images */
+
+header .navbar-brand::after,
+header .navbar-brand:hover::after {
+    display: none !important;
+}
+
+
+header .navbar-brand {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+
+/* ==========================================================
+   3. DROPDOWN MENUS
+   ========================================================== */
+
+header .dropdown-menu,
+#top_menu .dropdown-menu {
+    padding: 8px !important;
+
+    background: rgba(5, 41, 80, 0.98) !important;
+
+    border: 1px solid rgba(123, 140, 255, 0.22) !important;
+    border-radius: 10px !important;
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+
+    overflow: hidden;
+}
+
+
+header .dropdown-menu .dropdown-item,
+#top_menu .dropdown-menu .dropdown-item {
+    position: relative;
+
+    padding: 10px 14px 10px 20px !important;
+
+    color: rgba(255, 255, 255, 0.90) !important;
+    background: transparent !important;
+
+    border: 1px solid transparent !important;
+    border-radius: 7px !important;
+
+    transition:
+        color var(--kt-transition),
+        background-color var(--kt-transition),
+        border-color var(--kt-transition),
+        padding-left var(--kt-transition),
+        box-shadow var(--kt-transition);
+}
+
+
+/* Dropdown light indicator */
+
+header .dropdown-menu .dropdown-item::before,
+#top_menu .dropdown-menu .dropdown-item::before {
+    content: "";
+
+    position: absolute;
+    left: 7px;
+    top: 50%;
+
+    width: 3px;
+    height: 0;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        180deg,
+        var(--kt-pink),
+        var(--kt-blue)
+    );
+
+    transform: translateY(-50%);
+
+    box-shadow:
+        0 0 8px rgba(247, 67, 152, 0.55),
+        0 0 15px rgba(123, 140, 255, 0.25);
+
+    transition: height var(--kt-transition);
+}
+
+
+header .dropdown-menu .dropdown-item:hover,
+header .dropdown-menu .dropdown-item:focus,
+#top_menu .dropdown-menu .dropdown-item:hover,
+#top_menu .dropdown-menu .dropdown-item:focus {
+    color: var(--kt-white) !important;
+
+    padding-left: 25px !important;
+
+    background: linear-gradient(
+        110deg,
+        rgba(247, 67, 152, 0.12),
+        rgba(123, 140, 255, 0.06)
+    ) !important;
+
+    border-color: rgba(123, 140, 255, 0.16) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+
+header .dropdown-menu .dropdown-item:hover::before,
+header .dropdown-menu .dropdown-item:focus::before,
+#top_menu .dropdown-menu .dropdown-item:hover::before,
+#top_menu .dropdown-menu .dropdown-item:focus::before {
+    height: 52%;
+}
+
+
+/* Remove the main-menu underline inside dropdown options */
+
+header .dropdown-menu .dropdown-item::after,
+#top_menu .dropdown-menu .dropdown-item::after {
+    display: none !important;
+}
+
+
+/* ==========================================================
+   4. ODOO TABS
+   ========================================================== */
+
+/* Prevent horizontal scrollbars */
+
+.s_tabs_nav,
+.s_tabs_nav .nav {
+    overflow-x: hidden !important;
+    scrollbar-width: none;
+}
+
+
+.s_tabs_nav .nav::-webkit-scrollbar {
+    display: none;
+}
+
+
+.s_tabs_nav .nav-link {
+    position: relative;
+    isolation: isolate;
+
+    padding: 12px 18px !important;
+
+    border: 1px solid transparent !important;
+    border-radius: 9px !important;
+
+    transition:
+        color var(--kt-transition),
+        background-color var(--kt-transition),
+        border-color var(--kt-transition),
+        box-shadow var(--kt-transition);
+}
+
+
+/* Tab light indicator */
+
+.s_tabs_nav .nav-link::before {
+    content: "";
+
+    position: absolute;
+    left: 6px;
+    top: 50%;
+
+    width: 3px;
+    height: 0;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        180deg,
+        var(--kt-pink),
+        var(--kt-blue)
+    );
+
+    transform: translateY(-50%);
+
+    box-shadow:
+        0 0 8px rgba(247, 67, 152, 0.55),
+        0 0 16px rgba(123, 140, 255, 0.25);
+
+    transition: height var(--kt-transition);
+}
+
+
+.s_tabs_nav .nav-link:hover:not(.active) {
+    color: var(--kt-white) !important;
+
+    background: linear-gradient(
+        110deg,
+        rgba(247, 67, 152, 0.09),
+        rgba(123, 140, 255, 0.05)
+    ) !important;
+
+    border-color: rgba(123, 140, 255, 0.18) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.07),
+        0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+
+.s_tabs_nav .nav-link:hover:not(.active)::before {
+    height: 55%;
+}
+
+
+/* ==========================================================
+   5. ACCORDIONS
+   ========================================================== */
+
+.accordion-item {
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 10px !important;
+
+    transition:
+        background-color var(--kt-transition),
+        border-color var(--kt-transition),
+        box-shadow var(--kt-transition);
+}
+
+
+.accordion-button {
+    position: relative;
+    z-index: 1;
+
+    border-radius: 10px !important;
+
+    transition:
+        color var(--kt-transition),
+        background-color var(--kt-transition),
+        box-shadow var(--kt-transition);
+}
+
+
+/* Accordion hover */
+
+.accordion-item:hover .accordion-button {
+    color: var(--kt-white) !important;
+
+    background: linear-gradient(
+        110deg,
+        rgba(247, 67, 152, 0.10),
+        rgba(123, 140, 255, 0.06),
+        rgba(40, 215, 192, 0.03)
+    ) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.07),
+        0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Accordion light indicator */
+
+.accordion-button::before {
+    content: "";
+
+    position: absolute;
+    left: 5px;
+    top: 50%;
+
+    width: 3px;
+    height: 0;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        180deg,
+        var(--kt-pink),
+        var(--kt-blue)
+    );
+
+    transform: translateY(-50%);
+
+    box-shadow:
+        0 0 8px rgba(247, 67, 152, 0.55),
+        0 0 16px rgba(123, 140, 255, 0.25);
+
+    transition: height var(--kt-transition);
+}
+
+
+.accordion-item:hover .accordion-button::before,
+.accordion-button:not(.collapsed)::before {
+    height: 55%;
+}
+
+
+/* Open accordion */
+
+.accordion-button:not(.collapsed) {
+    color: var(--kt-pink) !important;
+
+    background: linear-gradient(
+        110deg,
+        rgba(247, 67, 152, 0.10),
+        rgba(123, 140, 255, 0.05)
+    ) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.07),
+        0 8px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+
+/* Accordion arrow */
+
+.accordion-button::after {
+    transition:
+        transform var(--kt-transition),
+        filter var(--kt-transition) !important;
+}
+
+
+.accordion-item:hover .accordion-button::after {
+    filter:
+        brightness(0)
+        saturate(100%)
+        invert(39%)
+        sepia(82%)
+        saturate(3026%)
+        hue-rotate(306deg)
+        brightness(101%)
+        contrast(94%);
+
+    transform: scale(1.12);
+}
+
+
+.accordion-button:not(.collapsed)::after {
+    transform: rotate(-180deg) scale(1.08) !important;
+
+    filter:
+        brightness(0)
+        saturate(100%)
+        invert(39%)
+        sepia(82%)
+        saturate(3026%)
+        hue-rotate(306deg)
+        brightness(101%)
+        contrast(94%);
+}
+
+
+/* Accordion content animation */
+
+.accordion-collapse.show .accordion-body {
+    animation: ktAccordionReveal 0.4s ease both;
+}
+
+
+@keyframes ktAccordionReveal {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ==========================================================
+   6. BUTTONS
+   ========================================================== */
+
+.btn:not(.dropdown-toggle),
+a.btn:not(.dropdown-toggle) {
+    position: relative;
+    overflow: hidden;
+
+    transition:
+        color var(--kt-transition),
+        background-color var(--kt-transition),
+        border-color var(--kt-transition),
+        box-shadow var(--kt-transition),
+        transform var(--kt-transition);
+}
+
+
+.btn:not(.dropdown-toggle):hover,
+a.btn:not(.dropdown-toggle):hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.18),
+        0 0 16px rgba(247, 67, 152, 0.18),
+        0 0 30px rgba(123, 140, 255, 0.08);
+}
+
+
+/* Button reflection */
+
+.btn:not(.dropdown-toggle)::before,
+a.btn:not(.dropdown-toggle)::before {
+    content: "";
+
+    position: absolute;
+    top: -100%;
+    left: -45%;
+
+    width: 25%;
+    height: 300%;
+
+    opacity: 0;
+
+    transform: rotate(20deg);
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.24),
+        transparent
+    );
+
+    pointer-events: none;
+}
+
+
+.btn:not(.dropdown-toggle):hover::before,
+a.btn:not(.dropdown-toggle):hover::before {
+    opacity: 1;
+    animation: ktButtonShimmer 0.8s ease forwards;
+}
+
+
+@keyframes ktButtonShimmer {
+    from {
+        left: -45%;
+    }
+
+    to {
+        left: 125%;
+    }
+}
+
+
+/* ==========================================================
+   7. CARDS
+   ========================================================== */
+
+/*
+   Applies to standard Odoo and Bootstrap cards.
+   No horizontal movement is used.
+*/
+
+.card,
+.s_card {
+    transition:
+        border-color var(--kt-transition),
+        box-shadow var(--kt-transition),
+        transform var(--kt-transition);
+}
+
+
+.card:hover,
+.s_card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(123, 140, 255, 0.22) !important;
+
+    box-shadow:
+        0 18px 38px rgba(0, 0, 0, 0.18),
+        0 0 20px rgba(123, 140, 255, 0.07);
+}
+
+
+/* ==========================================================
+   8. ICONS
+   ========================================================== */
+
+.fa,
+.oi,
+.bi {
+    transition:
+        color var(--kt-transition),
+        filter var(--kt-transition),
+        transform var(--kt-transition);
+}
+
+
+a:hover > .fa,
+a:hover > .oi,
+a:hover > .bi,
+.btn:hover .fa,
+.btn:hover .oi,
+.btn:hover .bi {
+    color: var(--kt-pink);
+
+    filter:
+        drop-shadow(0 0 6px rgba(247, 67, 152, 0.35));
+
+    transform: scale(1.08);
+}
+
+
+/* ==========================================================
+   9. FOCUS ACCESSIBILITY
+   ========================================================== */
+
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.nav-link:focus-visible,
+.accordion-button:focus-visible {
+    outline: 2px solid var(--kt-pink) !important;
+    outline-offset: 3px !important;
+
+    box-shadow:
+        0 0 0 4px rgba(247, 67, 152, 0.16) !important;
+}
+
+
+/* ==========================================================
+   10. MOBILE AND TOUCH DEVICES
+   ========================================================== */
+
+@media (hover: none) {
+    header .nav-link:hover,
+    header nav a:hover,
+    #top_menu .nav-link:hover,
+    .s_tabs_nav .nav-link:hover,
+    .accordion-item:hover .accordion-button,
+    .card:hover,
+    .s_card:hover,
+    .btn:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    header .nav-link:hover::after,
+    header nav a:hover::after,
+    #top_menu .nav-link:hover::after {
+        width: 0;
+    }
+}
+
+
+/* ==========================================================
+   11. REDUCED MOTION ACCESSIBILITY
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
 }
