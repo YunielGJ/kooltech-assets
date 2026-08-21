@@ -1040,3 +1040,119 @@ header .dropdown-menu .dropdown-item:focus-visible,
     outline: 2px solid #F74398 !important;
     outline-offset: 2px !important;
 }
+/* ==========================================================
+   KOOL&TECH | UNIFIED GLASS DROPDOWN
+   Parent menu + submenu as one visual block
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   1. ELIMINAR LA LINEA INFERIOR EN MENUS CON DROPDOWN
+   ---------------------------------------------------------- */
+
+header #top_menu > .nav-item.dropdown > .nav-link::after,
+header .navbar-nav > .nav-item.dropdown > .nav-link::after,
+header #top_menu > .nav-item.dropdown:hover > .nav-link::after,
+header .navbar-nav > .nav-item.dropdown:hover > .nav-link::after,
+header #top_menu > .nav-item.dropdown > .nav-link[aria-expanded="true"]::after,
+header .navbar-nav > .nav-item.dropdown > .nav-link[aria-expanded="true"]::after {
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+    box-shadow: none !important;
+    background: none !important;
+}
+
+
+/* ----------------------------------------------------------
+   2. CONTENEDOR DEL MENU CON DROPDOWN
+   ---------------------------------------------------------- */
+
+header #top_menu > .nav-item.dropdown,
+header .navbar-nav > .nav-item.dropdown {
+    position: relative;
+}
+
+
+/* ----------------------------------------------------------
+   3. SERVICES / INDUSTRIAS EN ESTADO ABIERTO
+   ---------------------------------------------------------- */
+
+header #top_menu > .nav-item.dropdown:hover > .nav-link,
+header #top_menu > .nav-item.dropdown > .nav-link.show,
+header #top_menu > .nav-item.dropdown > .nav-link[aria-expanded="true"],
+header .navbar-nav > .nav-item.dropdown:hover > .nav-link,
+header .navbar-nav > .nav-item.dropdown > .nav-link.show,
+header .navbar-nav > .nav-item.dropdown > .nav-link[aria-expanded="true"] {
+    position: relative;
+    z-index: 1002;
+
+    color: #FFFFFF !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(98, 124, 231, 0.16),
+            rgba(2, 3, 12, 0.94)
+        ) !important;
+
+    border: 1px solid rgba(98, 124, 231, 0.38) !important;
+    border-bottom-color: rgba(2, 3, 12, 0.96) !important;
+
+    border-radius: 10px 10px 0 0 !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.09),
+        0 -4px 18px rgba(98, 124, 231, 0.11) !important;
+}
+
+
+/* ----------------------------------------------------------
+   4. SUBMENU CONECTADO AL MENU PRINCIPAL
+   ---------------------------------------------------------- */
+
+header #top_menu > .nav-item.dropdown > .dropdown-menu,
+header .navbar-nav > .nav-item.dropdown > .dropdown-menu {
+    margin-top: -1px !important;
+    padding: 8px !important;
+
+    min-width: 295px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(12, 16, 34, 0.96),
+            rgba(2, 3, 12, 0.98)
+        ) !important;
+
+    border: 1px solid rgba(98, 124, 231, 0.38) !important;
+    border-radius: 0 12px 12px 12px !important;
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.50),
+        0 0 24px rgba(98, 124, 231, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+
+    backdrop-filter: blur(18px) saturate(135%);
+    -webkit-backdrop-filter: blur(18px) saturate(135%);
+
+    overflow: hidden;
+}
+
+
+/* Elimina cualquier espacio visual entre el enlace y el submenu */
+
+header #top_menu > .nav-item.dropdown > .dropdown-menu::before,
+header .navbar-nav > .nav-item.dropdown > .dropdown-menu::before {
+    content: "";
+
+    position: absolute;
+    top: -2px;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: #02030C;
+
+    pointer-
