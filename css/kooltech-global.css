@@ -1,9 +1,3 @@
-/* KOOL&TECH GLOBAL */
-
-body{
-    outline:5px solid red !important;
-}
-
-header a:hover{
-    color:#f74398 !important;
+body {
+    background: red !important;
 }
