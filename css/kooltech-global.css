@@ -1,6 +1,6 @@
 /* ==========================================================
    KOOL&TECH | GLOBAL PREMIUM DESIGN SYSTEM
-   Version 1.0
+   Clean Production Version
    ========================================================== */
 
 
@@ -9,17 +9,21 @@
    ========================================================== */
 
 :root {
-    --kt-pink: #f74398;
-    --kt-blue: #7b8cff;
-    --kt-teal: #28d7c0;
-    --kt-navy: #052950;
+    --kt-pink: #F74398;*    --kt-blue: #627CE7;
+    --kt-blue-light: #AAB8F5;
+    --kt-teal: #28D7C0;
 
-    --kt-white: #ffffff;
+    --kt-header: #02030C;
+    --kt-dropdown-start: #091021;
+    --kt-dropdown-middle: #0E1A3D;
+    --kt-dropdown-end: #132A55;
+
+    --kt-white: #FFFFFF;
     --kt-glass: rgba(255, 255, 255, 0.06);
-    --kt-border: rgba(123, 140, 255, 0.20);
+    --kt-border: rgba(98, 124, 231, 0.25);
 
     --kt-gradient: linear-gradient(
-        110deg,
+        90deg,
         var(--kt-pink),
         var(--kt-blue),
         var(--kt-teal)
@@ -30,184 +34,239 @@
 
 
 /* ==========================================================
-   2. MAIN NAVIGATION
+   2. HEADER BACKGROUND
    ========================================================== */
 
-/*
-   Targets common Odoo navigation structures.
-   Does not apply the effect to buttons.
-*/
+header,
+header .navbar,
+header .o_header_standard,
+header .o_header_affixed {
+    background-color: var(--kt-header) !important;
+}
 
-header .nav-link:not(.btn),
-header nav a:not(.btn),
-#top_menu > .nav-item > .nav-link {
+
+/* ==========================================================
+   3. MAIN NAVIGATION
+   ========================================================== */
+
+header #top_menu > .nav-ite* > .nav-link,
+header .navbar-nav >*.nav-item > .nav-link {
     position: relative;
     isolation: isolate;
     overflow: hidden;
 
-    border: 1px solid transparent;
-    border-radius: 8px;
+    padding: 10px 14px !important;
+
+    color: var(--kt-blue) !important;
+    background: transparent !important;
+
+    border: 1px solid transparent !important;
+    border-radius: 10px !important;
+
+    box-shadow: none;
 
     transition:
         color var(--kt-transition),
         background-color var(--kt-transition),
         border-color var(--kt-transition),
-        box-shadow var(--kt-transition);
+        box-shadow var(--kt-transition) !important;
 }
 
 
-/* Animated line below navigation items */
+/* Gradient line under main navigation links */
 
-header .nav-link:not(.btn)::af*er,
-header nav a:not(.btn)::after,*#top_menu > .nav-item > .nav-link:*after {
+header #top_menu > .nav-*tem > .nav-link::after,
+header .na*bar-nav > .nav-item > .nav-link::a*ter {
     content: "";
 
-    posi*ion: absolute;
+    positi*n: absolute;
     left: 50%;
-    *ottom: 3px;
+    bo*tom: 3px;
 
     width: 0;
-    hei*ht: 2px;
+    heigh*: 2px;
 
-    border-radius: 10px;*
-    background: var(--kt-gradient);
+    opacity: 0;
+
+    border-radius: 999px;
+
+    background: linear-gradient(
+        90deg,
+        var(--kt-pink),
+        var(--kt-blue)
+    );
 
     transform: translateX(-50%);
 
     box-shadow:
         0 0 8px rgba(247, 67, 152, 0.50),
-        0 0 14px rgba(123, 140, 255, 0.25);
+        0 0 14px rgba(98, 124, 231, 0.25);
 
-    transition: width var(--kt-transition);
+    transition:
+        width var(--kt-transition),
+        opacity 0.30s ease !important;
+
+    pointer-events: none;
 }
 
 
-/* Navigation hover */
+/* Main navigation hover */
 
-header .nav-link:not(.btn):hove*,
-header nav a:not(.btn):hover,
-#t*p_menu > .nav-item > .nav-link:hov*r {
-    color: var(--kt-white) !im*ortant;
+header #top_menu > .nav-item > *nav-link:hover,
+header .navbar-nav*> .nav-item > .nav-link:hover {
+  **color* var(--kt-white) !important;
 
-    background: linear-gr*dient(
-        110deg,
-        rgb*(247, 67, 152, 0.09),
-        rgba*123, 140, 255, 0.05)
-    ) !import*nt;
+   *background:*rgba(98, 124, 231, 0.10* !important;
 
-    border-color: rgba(123, 1*0, 255, 0.18) !important;
+    border*color: rgba(98, 124, 231, 0.28) !i*portant;
 
-    box*shadow:
-        inset 0 1px 0 rgba*255, 255, 255, 0.08),
-        0 8p* 22px rgba(0, 0, 0, 0.18);
+    box-shadow:
+        *nset 0 1px 0*rgba(255, 255, 255* 0.08),
+        * 8px 22px rgba(0, 0, 0, 0.18),
+   *    0 * 14px rgba(98, 124, 231, 0.15) !im*ortant;
 }
 
 
-header .nav-link:not(.btn):hover::after,
-header nav a:not(.btn):hover::after,
-#top_menu > .nav-item > .nav-link:hover::after {
+header #top_menu > .na*-item > .nav-link:hover::after,
+he*der .navbar-nav > .nav-item > .nav*link:hover::after {
+    width: cal*(100% - 24px);
+    opacity: 1;
+}
+
+
+/* Dropdown parent while open or hovered */
+
+header #top_menu > .nav-item.d*opdown:hover > .nav-link,
+header #*op_menu > .nav-item.show > .nav-li*k,
+header #top_menu > .nav-item > *nav-link.show,
+header #top_menu > *nav-item > .nav-link[aria-expanded="true"],
+header .navbar-nav > .nav*item.dropdown:hover > .nav-link,
+h*ader .navbar-nav > .nav-item.show * .nav-link,
+header .navbar-nav > .*av-item > .nav-link.show,
+header .*avbar-nav > .nav-item > .nav-link[aria-expanded="true"] {
+    color: *ar(--kt-white) !important;
+
+    ba*kground: rgba(98, 124, 231, 0.12) *important;
+
+    border-color: rgba*98, 124, 231, 0.30) !important;
+
+ *  box-shadow:
+        inset 0 1px * rgba(255, 255, 255, 0.09),
+      * 0 8px 22px rgba(0, 0, 0, 0.20),
+ *      0 0 16px rgba(98, 124, 231, *.14) !important;
+}
+
+
+header #top_m*nu > .nav-item.dropdown:hover > .nav-link::after,
+header #top_menu > .nav-item.show > .nav-link::after,
+header #top_menu > .nav-item > .nav-link.show::after,
+header #top_menu > .nav-item > .nav-link[aria-expanded="true"]::after,
+header .navbar-nav > .nav-item.dropdown:hover > .nav-link::after,
+header .navbar-nav > .nav-item.show > .nav-link::after,
+header .navbar-nav > .nav-item > .nav-link.show::after,
+header .navbar-nav > .nav-item > .nav-link[aria-expanded="true"]::after {
     width: calc(100% - 24px);
+    opacity: 1;
 }
 
 
 /* Active page */
 
-header .nav-link.active:not(.bt*),
-header .nav-item.active > .nav-*ink,
-#top_menu > .nav-item > .nav-*ink.active,
-#top_menu > .nav-item.*ctive > .nav-link {
-    color: var*--kt-white) !important;
+header #top_menu > .nav-item > *nav-link.active,
+header #top_menu * .nav-item.active > .nav-link,
+hea*er #top_menu > .nav-item > .nav-li*k[aria-current="page"],
+header .na*bar-nav > .nav-item > .nav-link.ac*ive,
+header .navbar-nav > .nav-ite*.active > .nav-link,
+header .navba*-nav > .nav-item > .nav-link[aria-current="page"] {
+    color: var(--*t-white) !important;
 
-    backg*ound: rgba(255, 255, 255, 0.035) !*mportant;
+    backgrou*d: rgba(247, 67, 152, 0.16) !impor*ant;
 
-    border-color: rgba(*55, 255, 255, 0.30) !important;
+    border-color: rgba(247, *7, 152, 0.38) !important;
 
- *  box-shadow:
-        inset 0 1px * rgba(255, 255, 255, 0.08),
-        0 6px 18px rgba(0, 0, 0, 0.16);
+    box*shadow:
+        inset 0 1px 0 rgba*255, 255, 255, 0.10),
+        0 0 16px rgba(247, 67, 152, 0.18) !important;
 }
 
 
-header .nav-link.active:not(.btn)::after,
-header .nav-item.active > .nav-link::after,
-#top_menu > .nav-item > .nav-link.active::after,
-#top_menu > .nav-item.active > .nav-link::after {
+header #top_menu > .nav-item > .nav-link.active::after,
+header #top_menu > .nav-item.active > .nav-link::after,
+header #top_menu > .nav-item > .nav-link[aria-current="page"]::after,
+header .navbar-nav > .nav-item > .nav-link.active::after,
+header .navbar-nav > .nav-item.active > .nav-link::after,
+header .navbar-nav > .nav-item > .nav-link[aria-current="page"]::after {
     width: calc(100% - 24px);
-    opacity: 0.85;
-}
-
-
-/* Prevent effects from changing logo images */
-
-header .navbar-brand::after,
-header .navbar-brand:hover::after {
-    display: none !important;
-}
-
-
-header .navbar-brand {
-    background: transparent !important;
-    border-color: transparent !important;
-    box-shadow: none !important;
+    opacity: 1;
 }
 
 
 /* ==========================================================
-   3. DROPDOWN MENUS
+   4. DROPDOWN MENUS
    ========================================================== */
 
 header .dropdown-menu,
-#top_menu .dropdown-menu {
-    padding: 8px !important;
+#top_men* .dropdown-menu {
+    padding: 8px*!important;
 
-    background: rgba(5, 41, 80, 0.98) !important;
+    overflow: hidden;*
+    background: linear-gradient(
+        135deg,
+        var(--kt-dropdown-start) 0%,
+        var(--kt-dropdown-middle) 55%,
+        var(--kt-dropdown-end) 100%
+    ) !important;
 
-    border: 1px solid rgba(123, 140, 255, 0.22) !important;
-    border-radius: 10px !important;
+    border: 1px solid rgba(98, 124, 231, 0.28) !important;
+    border-radius: 16px !important;
 
     box-shadow:
-        0 18px 45px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+        0 22px 50px rgba(0, 0, 0, 0.46),
+        0 0 24px rgba(98, 124, 231, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
 
-    overflow: hidden;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 }
 
 
-header .dropdown-menu .dropdown-item,
+/* Dropdown options */
+
+header .dropdown-menu .dropdown*item,
 #top_menu .dropdown-menu .dropdown-item {
     position: relative;
 
     padding: 10px 14px 10px 20px !important;
 
-    color: rgba(255, 255, 255, 0.90) !important;
+    color: var(--kt-blue-light) !important;
     background: transparent !important;
 
     border: 1px solid transparent !important;
-    border-radius: 7px !important;
+    border-radius: 8px !important;
 
     transition:
         color var(--kt-transition),
         background-color var(--kt-transition),
         border-color var(--kt-transition),
         padding-left var(--kt-transition),
-        box-shadow var(--kt-transition);
+        box-shadow var(--kt-transition) !important;
 }
 
 
-/* Dropdown light indicator */
+/* Vertical light indicator */
 
-header .dropdown-menu .dropdown-item::before,
-#top_menu .dropdown-menu .dropdown-item::before {
-    content: "";
+header .dropdown-menu .dropdown*item::before,
+#top_menu .dropdown-*enu .dropdown-item::before {
+    c*ntent: "";
 
-    position: absolute;
+    position: absolute*
     left: 7px;
     top: 50%;
 
     width: 3px;
     height: 0;
 
-    border-radius: 10px;
+    border-radius: 999px;
 
     background: linear-gradient(
         180deg,
@@ -219,43 +278,75 @@ header .dropdown-menu .dropdown-item::before,
 
     box-shadow:
         0 0 8px rgba(247, 67, 152, 0.55),
-        0 0 15px rgba(123, 140, 255, 0.25);
+        0 0 15px rgba(98, 124, 231, 0.25);
 
     transition: height var(--kt-transition);
 }
 
 
-header .dropdown-menu .dropdown-item:hover,
-header .dropdown-menu .dropdown-item:focus,
-#top_menu .dropdown-menu .dropdown-item:hover,
-#top_menu .dropdown-menu .dropdown-item:focus {
-    color: var(--kt-white) !important;
+/* Dropdown option hover */
 
-    padding-left: 25px !important;
+header .dropdown-menu .dropdown*item:hover,
+header .dropdown-menu *dropdown-item:focus,
+#top_menu .dr*pdown-menu .dropdown-item:hover,
+#*op_menu .dropdown-menu .dropdown-i*em:focus {
+    color: var(--kt-whi*e) !important;
 
-    background: linear-gradient(
+    padding-left: *5px !important;
+
+    background: l*near-gradient(
         110deg,
-        rgba(247, 67, 152, 0.12),
-        rgba(123, 140, 255, 0.06)
-    ) !important;
+   *    rgba(247, 67, 152, 0.15),
+    *   rgba(98, 124, 231, 0.13)
+    ) *important;
 
-    border-color: rgba(123, 140, 255, 0.16) !important;
+    border-color: rgba*98, 124, 231, 0.25) !important;
 
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.06),
-        0 6px 16px rgba(0, 0, 0, 0.12);
+ *  box*shadow*
+        inset*0 1px 0 rgba(255, 255* 255, 0.07),
+        * 6px 18px rgba(*, 0* 0, 0.18),
+        * 0 14px rgba*98, 124, 231, 0.08) !important;
 }
-
-
-header .dropdown-menu .dropdown-item:hover::before,
-header .dropdown-menu .dropdown-item:focus::before,
-#top_menu .dropdown-menu .dropdown-item:hover::before,
+*
+header .dropdown-menu .dropdown-i*em:hover::before,
+header .dropdown*menu .dropdown-item:focus::before,*#top_menu .dropdown-menu .dropdown-item:hover::before,
 #top_menu .dropdown-menu .dropdown-item:focus::before {
     height: 52%;
 }
 
 
-/* Remove the main-menu underline inside dropdown options */
+/* Active dropdown option */
+
+header .*ropdown-menu .dropdown-item.active*
+header .*ropdown-menu .*ropdown-item[aria-current="page"],*#top_menu .dropdown-menu .dropdown*item.active,
+#top_menu .dropdown-m*nu .dropdown-item[aria-current="page"] {
+    color: var(--kt-white) !*mportant;
+
+    padding-left: 25px *important;
+
+    background: linear*gradient(
+        110deg,
+        *gba(247, 67, 152, 0.18),
+        r*ba(98, 124, 231, 0.16)
+    ) !impo*tant;
+
+    border-color: rgba(98, *24, 231, 0.32) !important;
+
+    bo*-shadow:
+        inset 3px 0 0 var*--kt-pink),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07) !important;
+}
+
+
+header .dropdown-menu .dropdown-item.active::before,
+header .dropdown-menu .dropdown-item[aria-current="page"]::before,
+#top_menu .dropdown-menu .dropdown-item.active::before,
+#top_menu .dropdown-menu .dropdown-item[aria-current="page"]::before {
+    height: 52%;
+}
+
+
+/* Prevent main navigation line inside dropdown options */
 
 header .dropdown-menu .dropdown-item::after,
 #top_menu .dropdown-menu .dropdown-item::after {
@@ -263,11 +354,71 @@ header .dropdown-menu .dropdown-item::after,
 }
 
 
+/* Dropdown arrow */
+
+header .dropdown-toggle::after,
+#top_menu .dropdown-toggle::after {
+    border-top-color: var(--kt-blue) !important;
+
+    transition:
+        transform 0.30s ease,
+        border-top-color 0.30s ease !important;
+}
+
+
+header .dropdown-toggle:hover::after,
+header .dropdown-toggle.show::after,
+header .dropdown-toggle[aria-expanded="true"]::after,
+#top_menu .dropdown-toggle:hover::after,
+#top_menu .dropdown-toggle.show::after,
+#top_menu .dropdown-toggle[aria-expanded="true"]::after {
+    border-top-color: var(--kt-white) !important;
+    transform: rotate(180deg);
+}
+
+
 /* ==========================================================
-   4. ODOO TABS
+   5. HEADER PROTECTIONS
    ========================================================== */
 
-/* Prevent horizontal scrollbars */
+/* Protect logo */
+
+header .navbar-brand,
+header .navbar-brand:hover {
+    color: inherit !important;
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+
+header .navbar-brand::before,
+header .navbar-brand::after {
+    display: none !important;
+}
+
+
+/* Protect header buttons */
+
+header .btn,
+header a.btn,
+header .btn:hover,
+header a.btn:hover {
+    border-radius: inherit;
+}
+
+
+header .btn::after,
+header a.btn::after {
+    display: none !important;
+}
+
+
+/* ==========================================================
+   6. ODOO TABS
+   ========================================================== */
+
+/* Prevent horizontal scrollbar */
 
 .s_tabs_nav,
 .s_tabs_nav .nav {
@@ -294,7 +445,7 @@ header .dropdown-menu .dropdown-item::after,
         color var(--kt-transition),
         background-color var(--kt-transition),
         border-color var(--kt-transition),
-        box-shadow var(--kt-transition);
+        box-shadow var(--kt-transition) !important;
 }
 
 
@@ -310,7 +461,7 @@ header .dropdown-menu .dropdown-item::after,
     width: 3px;
     height: 0;
 
-    border-radius: 10px;
+    border-radius: 999px;
 
     background: linear-gradient(
         180deg,
@@ -322,11 +473,13 @@ header .dropdown-menu .dropdown-item::after,
 
     box-shadow:
         0 0 8px rgba(247, 67, 152, 0.55),
-        0 0 16px rgba(123, 140, 255, 0.25);
+        0 0 16px rgba(98, 124, 231, 0.25);
 
     transition: height var(--kt-transition);
 }
 
+
+/* Tab hover */
 
 .s_tabs_nav .nav-link:hover:not(.active) {
     color: var(--kt-white) !important;
@@ -334,14 +487,14 @@ header .dropdown-menu .dropdown-item::after,
     background: linear-gradient(
         110deg,
         rgba(247, 67, 152, 0.09),
-        rgba(123, 140, 255, 0.05)
+        rgba(98, 124, 231, 0.07)
     ) !important;
 
-    border-color: rgba(123, 140, 255, 0.18) !important;
+    border-color: rgba(98, 124, 231, 0.20) !important;
 
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.07),
-        0 10px 24px rgba(0, 0, 0, 0.15);
+        0 10px 24px rgba(0, 0, 0, 0.15) !important;
 }
 
 
@@ -350,8 +503,21 @@ header .dropdown-menu .dropdown-item::after,
 }
 
 
+/* Active tab */
+
+.s_tabs_nav .nav-link.active {
+    color: var(--kt-white) !important;
+
+    border-color: rgba(247, 67, 152, 0.30) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 0 16px rgba(247, 67, 152, 0.12) !important;
+}
+
+
 /* ==========================================================
-   5. ACCORDIONS
+   7. ACCORDIONS
    ========================================================== */
 
 .accordion-item {
@@ -363,7 +529,7 @@ header .dropdown-menu .dropdown-item::after,
     transition:
         background-color var(--kt-transition),
         border-color var(--kt-transition),
-        box-shadow var(--kt-transition);
+        box-shadow var(--kt-transition) !important;
 }
 
 
@@ -376,7 +542,7 @@ header .dropdown-menu .dropdown-item::after,
     transition:
         color var(--kt-transition),
         background-color var(--kt-transition),
-        box-shadow var(--kt-transition);
+        box-shadow var(--kt-transition) !important;
 }
 
 
@@ -388,13 +554,13 @@ header .dropdown-menu .dropdown-item::after,
     background: linear-gradient(
         110deg,
         rgba(247, 67, 152, 0.10),
-        rgba(123, 140, 255, 0.06),
+        rgba(98, 124, 231, 0.07),
         rgba(40, 215, 192, 0.03)
     ) !important;
 
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.07),
-        0 10px 24px rgba(0, 0, 0, 0.12);
+        0 10px 24px rgba(0, 0, 0, 0.12) !important;
 }
 
 
@@ -410,7 +576,7 @@ header .dropdown-menu .dropdown-item::after,
     width: 3px;
     height: 0;
 
-    border-radius: 10px;
+    border-radius: 999px;
 
     background: linear-gradient(
         180deg,
@@ -422,7 +588,7 @@ header .dropdown-menu .dropdown-item::after,
 
     box-shadow:
         0 0 8px rgba(247, 67, 152, 0.55),
-        0 0 16px rgba(123, 140, 255, 0.25);
+        0 0 16px rgba(98, 124, 231, 0.25);
 
     transition: height var(--kt-transition);
 }
@@ -442,7 +608,7 @@ header .dropdown-menu .dropdown-item::after,
     background: linear-gradient(
         110deg,
         rgba(247, 67, 152, 0.10),
-        rgba(123, 140, 255, 0.05)
+        rgba(98, 124, 231, 0.06)
     ) !important;
 
     box-shadow:
@@ -490,10 +656,10 @@ header .dropdown-menu .dropdown-item::after,
 }
 
 
-/* Accordion content animation */
+/* Accordion content reveal */
 
 .accordion-collapse.show .accordion-body {
-    animation: ktAccordionReveal 0.4s ease both;
+    animation: ktAccordionReveal 0.40s ease both;
 }
 
 
@@ -511,7 +677,7 @@ header .dropdown-menu .dropdown-item::after,
 
 
 /* ==========================================================
-   6. BUTTONS
+   8. BUTTONS
    ========================================================== */
 
 .btn:not(.dropdown-toggle),
@@ -524,7 +690,7 @@ a.btn:not(.dropdown-toggle) {
         background-color var(--kt-transition),
         border-color var(--kt-transition),
         box-shadow var(--kt-transition),
-        transform var(--kt-transition);
+        transform var(--kt-transition) !important;
 }
 
 
@@ -535,7 +701,7 @@ a.btn:not(.dropdown-toggle):hover {
     box-shadow:
         0 8px 22px rgba(0, 0, 0, 0.18),
         0 0 16px rgba(247, 67, 152, 0.18),
-        0 0 30px rgba(123, 140, 255, 0.08);
+        0 0 30px rgba(98, 124, 231, 0.08) !important;
 }
 
 
@@ -570,7 +736,7 @@ a.btn:not(.dropdown-toggle)::before {
 .btn:not(.dropdown-toggle):hover::before,
 a.btn:not(.dropdown-toggle):hover::before {
     opacity: 1;
-    animation: ktButtonShimmer 0.8s ease forwards;
+    animation: ktButtonShimmer 0.80s ease forwards;
 }
 
 
@@ -586,20 +752,15 @@ a.btn:not(.dropdown-toggle):hover::before {
 
 
 /* ==========================================================
-   7. CARDS
+   9. CARDS
    ========================================================== */
-
-/*
-   Applies to standard Odoo and Bootstrap cards.
-   No horizontal movement is used.
-*/
 
 .card,
 .s_card {
     transition:
         border-color var(--kt-transition),
         box-shadow var(--kt-transition),
-        transform var(--kt-transition);
+        transform var(--kt-transition) !important;
 }
 
 
@@ -607,16 +768,16 @@ a.btn:not(.dropdown-toggle):hover::before {
 .s_card:hover {
     transform: translateY(-5px);
 
-    border-color: rgba(123, 140, 255, 0.22) !important;
+    border-color: rgba(98, 124, 231, 0.24) !important;
 
     box-shadow:
         0 18px 38px rgba(0, 0, 0, 0.18),
-        0 0 20px rgba(123, 140, 255, 0.07);
+        0 0 20px rgba(98, 124, 231, 0.08) !important;
 }
 
 
 /* ==========================================================
-   8. ICONS
+   10. ICONS
    ========================================================== */
 
 .fa,
@@ -625,7 +786,7 @@ a.btn:not(.dropdown-toggle):hover::before {
     transition:
         color var(--kt-transition),
         filter var(--kt-transition),
-        transform var(--kt-transition);
+        transform var(--kt-transition) !important;
 }
 
 
@@ -645,13 +806,14 @@ a:hover > .bi,
 
 
 /* ==========================================================
-   9. FOCUS ACCESSIBILITY
+   11. KEYBOARD ACCESSIBILITY
    ========================================================== */
 
 a:focus-visible,
 button:focus-visible,
 .btn:focus-visible,
 .nav-link:focus-visible,
+.dropdown-item:focus-visible,
 .accordion-button:focus-visible {
     outline: 2px solid var(--kt-pink) !important;
     outline-offset: 3px !important;
@@ -662,32 +824,37 @@ button:focus-visible,
 
 
 /* ==========================================================
-   10. MOBILE AND TOUCH DEVICES
+   12. MOBILE AND TOUCH DEVICES
    ========================================================== */
 
 @media (hover: none) {
-    header .nav-link:hover,
-    header nav a:hover,
-    #top_menu .nav-link:hover,
+    header #top_menu > .nav-item > .nav-link:hover,
+    header .navbar-nav > .nav-item > .nav-link:hover,
     .s_tabs_nav .nav-link:hover,
     .accordion-item:hover .accordion-button,
     .card:hover,
     .s_card:hover,
     .btn:hover {
         transform: none;
-        box-shadow: none;
+        box-shadow: none !important;
     }
 
-    header .nav-link:hover::after,
-    header nav a:hover::after,
-    #top_menu .nav-link:hover::after {
+    header #top_menu > .nav-item > .nav-link:hover::after,
+    header .navbar-nav > .nav-item > .nav-link:hover::after {
         width: 0;
+        opacity: 0;
+    }
+
+    header .dropdown-menu,
+    #top_menu .dropdown-menu {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
     }
 }
 
 
 /* ==========================================================
-   11. REDUCED MOTION ACCESSIBILITY
+   13. REDUCED MOTION ACCESSIBILITY
    ========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
@@ -700,339 +867,3 @@ button:focus-visible,
         animation-iteration-count: 1 !important;
     }
 }
-/* ==========================================================
-   KOOL&TECH | PREMIUM MAIN NAVIGATION
-   Hover + dropdown open + current page
-   ========================================================== */
-
-/* Enlaces principales del menú */
-header #top_menu > .nav-item > .nav-link,
-header .navbar-nav > .nav-item > .nav-link {
-    position: relative !important;
-    isolation: isolate;
-    overflow: hidden;
-
-    padding: 10px 13px !important;
-
-    color: rgba(255, 255, 255, 0.76) !important;
-    background: transparent !important;
-
-    border: 1px solid transparent !important;
-    border-radius: 9px !important;
-
-    box-shadow: none;
-
-    transition:
-        color 0.35s ease,
-        background 0.35s ease,
-        border-color 0.35s ease,
-        box-shadow 0.35s ease !important;
-}
-
-
-/* Línea tecnológica animada */
-header #top_menu > .nav-item > .nav-link::after,
-header .navbar-nav > .nav-item > .nav-link::after {
-    content: "" !important;
-
-    position: absolute !important;
-    left: 50% !important;
-    bottom: 3px !important;
-
-    width: 0 !important;
-    height: 2px !important;
-
-    border-radius: 20px !important;
-
-    background: linear-gradient(
-        90deg,
-        #f74398 0%,
-        #7b8cff 52%,
-        #28d7c0 100%
-    ) !important;
-
-    transform: translateX(-50%) !important;
-
-    box-shadow:
-        0 0 8px rgba(247, 67, 152, 0.55),
-        0 0 16px rgba(123, 140, 255, 0.28) !important;
-
-    opacity: 0;
-
-    transition:
-        width 0.4s cubic-bezier(.22, 1, .36, 1),
-        opacity 0.3s ease !important;
-
-    pointer-events: none;
-}
-
-
-/* Hover premium */
-header #top_menu > .nav-item > .nav-link:hover,
-header .navbar-nav > .nav-item > .nav-link:hover {
-    color: #ffffff !important;
-
-    background: linear-gradient(
-        110deg,
-        rgba(247, 67, 152, 0.13),
-        rgba(123, 140, 255, 0.07)
-    ) !important;
-
-    border-color: rgba(123, 140, 255, 0.25) !important;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.09),
-        0 8px 22px rgba(0, 0, 0, 0.20),
-        0 0 16px rgba(123, 140, 255, 0.10) !important;
-}
-
-
-/* Muestra la línea cuando pasas el cursor */
-header #top_menu > .nav-item > .nav-link:hover::after,
-header .navbar-nav > .nav-item > .nav-link:hover::after {
-    width: calc(100% - 24px) !important;
-    opacity: 1 !important;
-}
-
-
-/* Mantiene el efecto cuando Services o Industries están abiertos */
-header #top_menu > .nav-item.dropdown:hover > .nav-link,
-header #top_menu > .nav-item.show > .nav-link,
-header #top_menu > .nav-item > .nav-link.show,
-header #top_menu > .nav-item > .nav-link[aria-expanded="true"],
-header .navbar-nav > .nav-item.dropdown:hover > .nav-link,
-header .navbar-nav > .nav-item.show > .nav-link,
-header .navbar-nav > .nav-item > .nav-link.show,
-header .navbar-nav > .nav-item > .nav-link[aria-expanded="true"] {
-    color: #ffffff !important;
-
-    background: linear-gradient(
-        110deg,
-        rgba(247, 67, 152, 0.16),
-        rgba(123, 140, 255, 0.09)
-    ) !important;
-
-    border-color: rgba(123, 140, 255, 0.30) !important;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.10),
-        0 8px 22px rgba(0, 0, 0, 0.22),
-        0 0 18px rgba(247, 67, 152, 0.11) !important;
-}
-
-
-/* Línea mientras el dropdown permanece abierto */
-header #top_menu > .nav-item.dropdown:hover > .nav-link::after,
-header #top_menu > .nav-item.show > .nav-link::after,
-header #top_menu > .nav-item > .nav-link.show::after,
-header #top_menu > .nav-item > .nav-link[aria-expanded="true"]::after,
-header .navbar-nav > .nav-item.dropdown:hover > .nav-link::after,
-header .navbar-nav > .nav-item.show > .nav-link::after,
-header .navbar-nav > .nav-item > .nav-link.show::after,
-header .navbar-nav > .nav-item > .nav-link[aria-expanded="true"]::after {
-    width: calc(100% - 24px) !important;
-    opacity: 1 !important;
-}
-
-
-/* ==========================================================
-   ACTIVE PAGE
-   The JavaScript adds .active and aria-current="page"
-   ========================================================== */
-
-header #top_menu > .nav-item > .nav-link.active,
-header #top_menu > .nav-item.active > .nav-link,
-header #top_menu > .nav-item > .nav-link[aria-current="page"],
-header .navbar-nav > .nav-item > .nav-link.active,
-header .navbar-nav > .nav-item.active > .nav-link,
-header .navbar-nav > .nav-item > .nav-link[aria-current="page"] {
-    color: #ffffff !important;
-
-    background: linear-gradient(
-        110deg,
-        rgba(247, 67, 152, 0.20),
-        rgba(123, 140, 255, 0.12)
-    ) !important;
-
-    border-color: rgba(123, 140, 255, 0.38) !important;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.11),
-        0 0 14px rgba(247, 67, 152, 0.10),
-        0 0 22px rgba(123, 140, 255, 0.13) !important;
-}
-
-
-/* Línea permanente debajo de la página activa */
-header #top_menu > .nav-item > .nav-link.active::after,
-header #top_menu > .nav-item.active > .nav-link::after,
-header #top_menu > .nav-item > .nav-link[aria-current="page"]::after,
-header .navbar-nav > .nav-item > .nav-link.active::after,
-header .navbar-nav > .nav-item.active > .nav-link::after,
-header .navbar-nav > .nav-item > .nav-link[aria-current="page"]::after {
-    width: calc(100% - 24px) !important;
-    opacity: 1 !important;
-}
-
-
-/* ==========================================================
-   PROTECTIONS
-   Prevent effects on logo, contact button and dropdown links
-   ========================================================== */
-
-header .navbar-brand,
-header .navbar-brand:hover {
-    background: transparent !important;
-    border-color: transparent !important;
-    box-shadow: none !important;
-}
-
-header .navbar-brand:
-/* ==========================================================
-   KOOL&TECH | HEADER AND DROPDOWN COLORS
-   ========================================================== */
-
-/* Barra principal del header */
-header,
-header .navbar,
-header .o_header_standard,
-header .o_header_affixed {
-    background-color: #02030C !important;
-}
-
-
-/* Color normal de los enlaces principales */
-header #top_menu > .nav-item > .nav-link,
-header .navbar-nav > .nav-item > .nav-link {
-    color: #627CE7 !important;
-}
-
-
-/* Color del enlace al pasar el cursor */
-header #top_menu > .nav-item > .nav-link:hover,
-header .navbar-nav > .nav-item > .nav-link:hover,
-header #top_menu > .nav-item.dropdown:hover > .nav-link,
-header .navbar-nav > .nav-item.dropdown:hover > .nav-link,
-header #top_menu > .nav-item > .nav-link[aria-expanded="true"],
-header .navbar-nav > .nav-item > .nav-link[aria-expanded="true"] {
-    color: #FFFFFF !important;
-}
-
-
-/* Color de la página activa */
-header #top_menu > .nav-item > .nav-link.active,
-header #top_menu > .nav-item.active > .nav-link,
-header #top_menu > .nav-item > .nav-link[aria-current="page"],
-header .navbar-nav > .nav-item > .nav-link.active,
-header .navbar-nav > .nav-item.active > .nav-link,
-header .navbar-nav > .nav-item > .nav-link[aria-current="page"] {
-    color: #FFFFFF !important;
-}
-
-
-/* Fondo premium de los submenús */
-header .dropdown-menu,
-#top_menu .dropdown-menu {
-    background: linear-gradient(
-        145deg,
-        rgba(8, 12, 32, 0.98) 0%,
-        rgba(13, 22, 53, 0.98) 55%,
-        rgba(18, 31, 70, 0.98) 100%
-    ) !important;
-
-    border: 1px solid rgba(98, 124, 231, 0.32) !important;
-    border-radius: 12px !important;
-
-    box-shadow:
-        0 22px 50px rgba(0, 0, 0, 0.46),
-        0 0 24px rgba(98, 124, 231, 0.10),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
-
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-
-    padding: 8px !important;
-}
-
-
-/* Texto normal de las opciones del submenú */
-header .dropdown-menu .dropdown-item,
-#top_menu .dropdown-menu .dropdown-item {
-    color: #AAB8F5 !important;
-    background: transparent !important;
-
-    border: 1px solid transparent !important;
-    border-radius: 8px !important;
-
-    transition:
-        color 0.3s ease,
-        background 0.3s ease,
-        border-color 0.3s ease,
-        padding-left 0.3s cubic-bezier(.22, 1, .36, 1),
-        box-shadow 0.3s ease !important;
-}
-
-
-/* Hover de las opciones del submenú */
-header .dropdown-menu .dropdown-item:hover,
-header .dropdown-menu .dropdown-item:focus,
-#top_menu .dropdown-menu .dropdown-item:hover,
-#top_menu .dropdown-menu .dropdown-item:focus {
-    color: #FFFFFF !important;
-
-    background: linear-gradient(
-        110deg,
-        rgba(247, 67, 152, 0.15),
-        rgba(98, 124, 231, 0.13)
-    ) !important;
-
-    border-color: rgba(98, 124, 231, 0.25) !important;
-
-    padding-left: 25px !important;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.07),
-        0 6px 18px rgba(0, 0, 0, 0.18),
-        0 0 14px rgba(98, 124, 231, 0.08) !important;
-}
-
-
-/* Opción activa dentro de un submenú */
-header .dropdown-menu .dropdown-item.active,
-#top_menu .dropdown-menu .dropdown-item.active,
-header .dropdown-menu .dropdown-item[aria-current="page"],
-#top_menu .dropdown-menu .dropdown-item[aria-current="page"] {
-    color: #FFFFFF !important;
-
-    background: linear-gradient(
-        110deg,
-        rgba(247, 67, 152, 0.18),
-        rgba(98, 124, 231, 0.16)
-    ) !important;
-
-    border-color: rgba(98, 124, 231, 0.32) !important;
-
-    box-shadow:
-        inset 3px 0 0 #F74398,
-        inset 0 1px 0 rgba(255, 255, 255, 0.07) !important;
-}
-
-
-/* Flecha del menú desplegable */
-header .dropdown-toggle::after,
-#top_menu .dropdown-toggle::after {
-    color: #627CE7;
-    border-top-color: #627CE7 !important;
-
-    transition:
-        transform 0.3s ease,
-        border-top-color 0.3s ease !important;
-}
-
-
-/* Flecha blanca y ligeramente rotada al abrir */
-header .dropdown-toggle:hover::after,
-header .dropdown-toggle[aria-expanded="true"]::after,
-#top_menu .dropdown-toggle:hover::after,
-#top_menu .dropdown-toggle[aria-expanded="true"]::after {
-    border-top-
