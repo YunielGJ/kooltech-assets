@@ -1,11 +1,5 @@
+/* TEST */
+
 html{
-    border:15px solid red !important;
-}
-
-body{
-    background:yellow !important;
-}
-
-h1{
-    color:red !important;
+    border:10px solid red !important;
 }
