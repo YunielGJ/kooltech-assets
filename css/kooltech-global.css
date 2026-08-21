@@ -700,3 +700,191 @@ button:focus-visible,
         animation-iteration-count: 1 !important;
     }
 }
+/* ==========================================================
+   KOOL&TECH | PREMIUM MAIN NAVIGATION
+   Hover + dropdown open + current page
+   ========================================================== */
+
+/* Enlaces principales del menú */
+header #top_menu > .nav-item > .nav-link,
+header .navbar-nav > .nav-item > .nav-link {
+    position: relative !important;
+    isolation: isolate;
+    overflow: hidden;
+
+    padding: 10px 13px !important;
+
+    color: rgba(255, 255, 255, 0.76) !important;
+    background: transparent !important;
+
+    border: 1px solid transparent !important;
+    border-radius: 9px !important;
+
+    box-shadow: none;
+
+    transition:
+        color 0.35s ease,
+        background 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease !important;
+}
+
+
+/* Línea tecnológica animada */
+header #top_menu > .nav-item > .nav-link::after,
+header .navbar-nav > .nav-item > .nav-link::after {
+    content: "" !important;
+
+    position: absolute !important;
+    left: 50% !important;
+    bottom: 3px !important;
+
+    width: 0 !important;
+    height: 2px !important;
+
+    border-radius: 20px !important;
+
+    background: linear-gradient(
+        90deg,
+        #f74398 0%,
+        #7b8cff 52%,
+        #28d7c0 100%
+    ) !important;
+
+    transform: translateX(-50%) !important;
+
+    box-shadow:
+        0 0 8px rgba(247, 67, 152, 0.55),
+        0 0 16px rgba(123, 140, 255, 0.28) !important;
+
+    opacity: 0;
+
+    transition:
+        width 0.4s cubic-bezier(.22, 1, .36, 1),
+        opacity 0.3s ease !important;
+
+    pointer-events: none;
+}
+
+
+/* Hover premium */
+header #top_menu > .nav-item > .nav-link:hover,
+header .navbar-nav > .nav-item > .nav-link:hover {
+    color: #ffffff !important;
+
+    background: linear-gradient(
+        110deg,
+        rgba(247, 67, 152, 0.13),
+        rgba(123, 140, 255, 0.07)
+    ) !important;
+
+    border-color: rgba(123, 140, 255, 0.25) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.09),
+        0 8px 22px rgba(0, 0, 0, 0.20),
+        0 0 16px rgba(123, 140, 255, 0.10) !important;
+}
+
+
+/* Muestra la línea cuando pasas el cursor */
+header #top_menu > .nav-item > .nav-link:hover::after,
+header .navbar-nav > .nav-item > .nav-link:hover::after {
+    width: calc(100% - 24px) !important;
+    opacity: 1 !important;
+}
+
+
+/* Mantiene el efecto cuando Services o Industries están abiertos */
+header #top_menu > .nav-item.dropdown:hover > .nav-link,
+header #top_menu > .nav-item.show > .nav-link,
+header #top_menu > .nav-item > .nav-link.show,
+header #top_menu > .nav-item > .nav-link[aria-expanded="true"],
+header .navbar-nav > .nav-item.dropdown:hover > .nav-link,
+header .navbar-nav > .nav-item.show > .nav-link,
+header .navbar-nav > .nav-item > .nav-link.show,
+header .navbar-nav > .nav-item > .nav-link[aria-expanded="true"] {
+    color: #ffffff !important;
+
+    background: linear-gradient(
+        110deg,
+        rgba(247, 67, 152, 0.16),
+        rgba(123, 140, 255, 0.09)
+    ) !important;
+
+    border-color: rgba(123, 140, 255, 0.30) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.10),
+        0 8px 22px rgba(0, 0, 0, 0.22),
+        0 0 18px rgba(247, 67, 152, 0.11) !important;
+}
+
+
+/* Línea mientras el dropdown permanece abierto */
+header #top_menu > .nav-item.dropdown:hover > .nav-link::after,
+header #top_menu > .nav-item.show > .nav-link::after,
+header #top_menu > .nav-item > .nav-link.show::after,
+header #top_menu > .nav-item > .nav-link[aria-expanded="true"]::after,
+header .navbar-nav > .nav-item.dropdown:hover > .nav-link::after,
+header .navbar-nav > .nav-item.show > .nav-link::after,
+header .navbar-nav > .nav-item > .nav-link.show::after,
+header .navbar-nav > .nav-item > .nav-link[aria-expanded="true"]::after {
+    width: calc(100% - 24px) !important;
+    opacity: 1 !important;
+}
+
+
+/* ==========================================================
+   ACTIVE PAGE
+   The JavaScript adds .active and aria-current="page"
+   ========================================================== */
+
+header #top_menu > .nav-item > .nav-link.active,
+header #top_menu > .nav-item.active > .nav-link,
+header #top_menu > .nav-item > .nav-link[aria-current="page"],
+header .navbar-nav > .nav-item > .nav-link.active,
+header .navbar-nav > .nav-item.active > .nav-link,
+header .navbar-nav > .nav-item > .nav-link[aria-current="page"] {
+    color: #ffffff !important;
+
+    background: linear-gradient(
+        110deg,
+        rgba(247, 67, 152, 0.20),
+        rgba(123, 140, 255, 0.12)
+    ) !important;
+
+    border-color: rgba(123, 140, 255, 0.38) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.11),
+        0 0 14px rgba(247, 67, 152, 0.10),
+        0 0 22px rgba(123, 140, 255, 0.13) !important;
+}
+
+
+/* Línea permanente debajo de la página activa */
+header #top_menu > .nav-item > .nav-link.active::after,
+header #top_menu > .nav-item.active > .nav-link::after,
+header #top_menu > .nav-item > .nav-link[aria-current="page"]::after,
+header .navbar-nav > .nav-item > .nav-link.active::after,
+header .navbar-nav > .nav-item.active > .nav-link::after,
+header .navbar-nav > .nav-item > .nav-link[aria-current="page"]::after {
+    width: calc(100% - 24px) !important;
+    opacity: 1 !important;
+}
+
+
+/* ==========================================================
+   PROTECTIONS
+   Prevent effects on logo, contact button and dropdown links
+   ========================================================== */
+
+header .navbar-brand,
+header .navbar-brand:hover {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+header .navbar-brand:
