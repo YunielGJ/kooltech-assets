@@ -1,6 +1,6 @@
 /* ==========================================================
    KOOL&TECH | GLOBAL PREMIUM DESIGN SYSTEM
-   Clean Production Version
+   Glass Edition
    ========================================================== */
 
 
@@ -10,17 +10,20 @@
 
 :root {
     --kt-pink: #F74398;*    --kt-blue: #627CE7;
-    --kt-blue-light: #AAB8F5;
-    --kt-teal: #28D7C0;
+    --kt-b*ue-light: #AAB8F5;
+    --kt-teal: *28D7C0;
 
     --kt-header: #02030C;
-    --kt-dropdown-start: #091021;
-    --kt-dropdown-middle: #0E1A3D;
-    --kt-dropdown-end: #132A55;
+    --kt-dropdown: #02030C;
 
     --kt-white: #FFFFFF;
-    --kt-glass: rgba(255, 255, 255, 0.06);
-    --kt-border: rgba(98, 124, 231, 0.25);
+
+    --kt-border-blue: rgba(98, 124, 231, 0.32);
+    --kt-border-pink: rgba(247, 67, 152, 0.38);
+
+    --kt-glass-dark: rgba(2, 3, 12, 0.84);
+    --kt-glass-item: rgba(2, 3, 12, 0.72);
+    --kt-glass-hover: rgba(98, 124, 231, 0.12);
 
     --kt-gradient: linear-gradient(
         90deg,
@@ -40,7 +43,8 @@
 header,
 header .navbar,
 header .o_header_standard,
-header .o_header_affixed {
+header .o_header_affixed,
+header .navbar-collapse {
     background-color: var(--kt-header) !important;
 }
 
@@ -73,18 +77,18 @@ header .navbar-nav >*.nav-item > .nav-link {
 }
 
 
-/* Gradient line under main navigation links */
+/* Línea animada debajo del menú */
 
-header #top_menu > .nav-*tem > .nav-link::after,
-header .na*bar-nav > .nav-item > .nav-link::a*ter {
-    content: "";
+header #top_menu > .nav-item > *nav-link::after,
+header .navbar-na* > .nav-item > .nav-link::after {
+*   content: "";
 
-    positi*n: absolute;
+    position: absolute;
     left: 50%;
-    bo*tom: 3px;
+    bottom: 3px;
 
     width: 0;
-    heigh*: 2px;
+    height: 2px;
 
     opacity: 0;
 
@@ -100,7 +104,7 @@ header .na*bar-nav > .nav-item > .nav-link::a*ter {
 
     box-shadow:
         0 0 8px rgba(247, 67, 152, 0.50),
-        0 0 14px rgba(98, 124, 231, 0.25);
+        0 0 14px rgba(98, 124, 231, 0.30);
 
     transition:
         width var(--kt-transition),
@@ -110,54 +114,54 @@ header .na*bar-nav > .nav-item > .nav-link::a*ter {
 }
 
 
-/* Main navigation hover */
+/* Hover del menú principal */
 
 header #top_menu > .nav-item > *nav-link:hover,
 header .navbar-nav*> .nav-item > .nav-link:hover {
-  **color* var(--kt-white) !important;
+  * color: var(--kt-white) !important*
 
-   *background:*rgba(98, 124, 231, 0.10* !important;
+    background: rgba(98, 124, 231, 0.10) !important;
 
-    border*color: rgba(98, 124, 231, 0.28) !i*portant;
+    border-color: rgba(98, 124, 231, 0.28) !important;
 
     box-shadow:
-        *nset 0 1px 0*rgba(255, 255, 255* 0.08),
-        * 8px 22px rgba(0, 0, 0, 0.18),
-   *    0 * 14px rgba(98, 124, 231, 0.15) !im*ortant;
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 8px 22px rgba(0, 0, 0, 0.20),
+        0 0 14px rgba(98, 124, 231, 0.16) !important;
 }
 
 
-header #top_menu > .na*-item > .nav-link:hover::after,
-he*der .navbar-nav > .nav-item > .nav*link:hover::after {
-    width: cal*(100% - 24px);
+header #top_menu > .nav-item > .nav-link:hover::after,
+header .navbar-nav > .nav-item > .nav-link:hover::after {
+    width: calc(100% - 24px);
     opacity: 1;
 }
 
 
-/* Dropdown parent while open or hovered */
+/* Menú desplegable abierto */
 
-header #top_menu > .nav-item.d*opdown:hover > .nav-link,
-header #*op_menu > .nav-item.show > .nav-li*k,
-header #top_menu > .nav-item > *nav-link.show,
-header #top_menu > *nav-item > .nav-link[aria-expanded="true"],
-header .navbar-nav > .nav*item.dropdown:hover > .nav-link,
-h*ader .navbar-nav > .nav-item.show * .nav-link,
-header .navbar-nav > .*av-item > .nav-link.show,
-header .*avbar-nav > .nav-item > .nav-link[aria-expanded="true"] {
-    color: *ar(--kt-white) !important;
+header #top_menu > .nav-item.dr*pdown:hover > .nav-link,
+header #t*p_menu > .nav-item.show > .nav-lin*,
+header #top_menu > .nav-item > .*av-link.show,
+header #top_menu > .*av-item > .nav-link[aria-expanded="true"],
+header .navbar-nav > .nav-*tem.dropdown:hover > .nav-link,
+he*der .navbar-nav > .nav-item.show >*.nav-link,
+header .navbar-nav > .n*v-item > .nav-link.show,
+header .n*vbar-nav > .nav-item > .nav-link[aria-expanded="true"] {
+    color: v*r(--kt-white) !important;
 
-    ba*kground: rgba(98, 124, 231, 0.12) *important;
+    bac*ground: rgba(98, 124, 231, 0.12) !*mportant;
 
-    border-color: rgba*98, 124, 231, 0.30) !important;
+    border-color: rgba(*8, 124, 231, 0.32) !important;
 
- *  box-shadow:
-        inset 0 1px * rgba(255, 255, 255, 0.09),
-      * 0 8px 22px rgba(0, 0, 0, 0.20),
- *      0 0 16px rgba(98, 124, 231, *.14) !important;
+  * box-shadow:
+        inset 0 1px 0*rgba(255, 255, 255, 0.09),
+       *0 8px 22px rgba(0, 0, 0, 0.22),
+  *     0 0 16px rgba(98, 124, 231, 0*16) !important;
 }
 
 
-header #top_m*nu > .nav-item.dropdown:hover > .nav-link::after,
+header #top_me*u > .nav-item.dropdown:hover > .nav-link::after,
 header #top_menu > .nav-item.show > .nav-link::after,
 header #top_menu > .nav-item > .nav-link.show::after,
 header #top_menu > .nav-item > .nav-link[aria-expanded="true"]::after,
@@ -170,7 +174,7 @@ header .navbar-nav > .nav-item > .nav-link[aria-expanded="true"]::after {
 }
 
 
-/* Active page */
+/* Página activa */
 
 header #top_menu > .nav-item > *nav-link.active,
 header #top_menu * .nav-item.active > .nav-link,
@@ -182,11 +186,11 @@ header .navba*-nav > .nav-item > .nav-link[aria-current="page"] {
 
     backgrou*d: rgba(247, 67, 152, 0.16) !impor*ant;
 
-    border-color: rgba(247, *7, 152, 0.38) !important;
+    border-color: var(--kt-b*rder-pink) !important;
 
-    box*shadow:
-        inset 0 1px 0 rgba*255, 255, 255, 0.10),
-        0 0 16px rgba(247, 67, 152, 0.18) !important;
+    box-sh*dow:
+        inset 0 1px 0 rgba(25*, 255, 255, 0.10),
+        0 0 16px rgba(247, 67, 152, 0.20) !important;
 }
 
 
@@ -202,64 +206,116 @@ header .navbar-nav > .nav-item > .nav-link[aria-current="page"]::after {
 
 
 /* ==========================================================
-   4. DROPDOWN MENUS
+   4. GLASS DROPDOWN MENUS
    ========================================================== */
 
 header .dropdown-menu,
-#top_men* .dropdown-menu {
-    padding: 8px*!important;
+*top_menu .dropdown-menu {
+    posi*ion: absolute;
 
-    overflow: hidden;*
-    background: linear-gradient(
-        135deg,
-        var(--kt-dropdown-start) 0%,
-        var(--kt-dropdown-middle) 55%,
-        var(--kt-dropdown-end) 100%
-    ) !important;
+    padding: 8px !*mportant;
 
-    border: 1px solid rgba(98, 124, 231, 0.28) !important;
+    overflow: hidden;
+
+*   background-color: var(--kt-drop*own) !important;
+
+    background-i*age:
+        linear-gradient(
+    *       145deg,
+            rgba(25*, 255, 255, 0.055) 0%,
+           *rgba(98, 124, 231, 0.035) 45%,
+   *        rgba(247, 67, 152, 0.025) 100%
+        ) !important;
+
+    border: 1px solid rgba(98, 124, 231, 0.34) !important;
     border-radius: 16px !important;
 
     box-shadow:
-        0 22px 50px rgba(0, 0, 0, 0.46),
-        0 0 24px rgba(98, 124, 231, 0.10),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+        0 24px 55px rgba(0, 0, 0, 0.58),
+        0 0 28px rgba(98, 124, 231, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.09),
+        inset 0 -1px 0 rgba(98, 124, 231, 0.08) !important;
 
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter:
+        blur(20px)
+        saturate(145%);
+
+    -webkit-backdrop-filter:
+        blur(20px)
+        saturate(145%);
 }
 
 
-/* Dropdown options */
+/* Reflejo glass superior */
+
+header .dropdown-menu::before,
+#top_menu .dropdown-menu::before {
+    content: "";
+
+    position: absolute;
+    z-index: 0;
+
+    top: 0;
+    left: 10%;
+    right: 10%;
+
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent
+    );
+
+    pointer-events: none;
+}
+
+
+/* Opciones del submenú */
 
 header .dropdown-menu .dropdown*item,
-#top_menu .dropdown-menu .dropdown-item {
-    position: relative;
+#top_menu .dropdown-menu .dr*pdown-item {
+    position: relativ*;
+    z-index: 1;
 
-    padding: 10px 14px 10px 20px !important;
+    display: bl*ck;
 
-    color: var(--kt-blue-light) !important;
-    background: transparent !important;
+    padding: 11px 15px 11px 2*px !important;
+
+    color: var(--k*-blue) !important;
+
+    background*color: var(--kt-dropdown) !importa*t;
+
+    background-image: linear-g*adient(
+        110deg,
+        rg*a(255, 255, 255, 0.018),
+        rgba(98, 124, 231, 0.018)
+    ) !important;
 
     border: 1px solid transparent !important;
-    border-radius: 8px !important;
+    border-radius: 9px !important;
+
+    text-shadow:
+        0 0 10px rgba(98, 124, 231, 0.12);
 
     transition:
         color var(--kt-transition),
         background-color var(--kt-transition),
+        background-image var(--kt-transition),
         border-color var(--kt-transition),
         padding-left var(--kt-transition),
         box-shadow var(--kt-transition) !important;
 }
 
 
-/* Vertical light indicator */
+/* Indicador vertical del submenú */
 
-header .dropdown-menu .dropdown*item::before,
-#top_menu .dropdown-*enu .dropdown-item::before {
-    c*ntent: "";
+header .dropdown-menu .dropdown-item::before,
+#top_menu .dropdown-menu .dropdown-item::before {
+    content: "";
 
-    position: absolute*
+    position: absolute;
     left: 7px;
     top: 50%;
 
@@ -277,14 +333,14 @@ header .dropdown-menu .dropdown*item::before,
     transform: translateY(-50%);
 
     box-shadow:
-        0 0 8px rgba(247, 67, 152, 0.55),
-        0 0 15px rgba(98, 124, 231, 0.25);
+        0 0 8px rgba(247, 67, 152, 0.60),
+        0 0 16px rgba(98, 124, 231, 0.30);
 
     transition: height var(--kt-transition);
 }
 
 
-/* Dropdown option hover */
+/* Hover de las opciones */
 
 header .dropdown-menu .dropdown*item:hover,
 header .dropdown-menu *dropdown-item:focus,
@@ -292,49 +348,59 @@ header .dropdown-menu *dropdown-item:focus,
 #*op_menu .dropdown-menu .dropdown-i*em:focus {
     color: var(--kt-whi*e) !important;
 
-    padding-left: *5px !important;
+    padding-left: *7px !important;
 
-    background: l*near-gradient(
+    background-co*or: var(--kt-dropdown) !important;*
+    background-image: linear-grad*ent(
         110deg,
-   *    rgba(247, 67, 152, 0.15),
-    *   rgba(98, 124, 231, 0.13)
-    ) *important;
+        rgba(*47, 67, 152, 0.16),
+        rgba(9*, 124, 231, 0.15),
+        rgba(40* 215, 192, 0.04)
+    ) !important;*
+    border-color: rgba(98, 124, 231, 0.30) !important;
 
-    border-color: rgba*98, 124, 231, 0.25) !important;
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.16);
 
- *  box*shadow*
-        inset*0 1px 0 rgba(255, 255* 255, 0.07),
-        * 6px 18px rgba(*, 0* 0, 0.18),
-        * 0 14px rgba*98, 124, 231, 0.08) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.09),
+        0 7px 18px rgba(0, 0, 0, 0.25),
+        0 0 16px rgba(98, 124, 231, 0.10) !important;
 }
-*
-header .dropdown-menu .dropdown-i*em:hover::before,
-header .dropdown*menu .dropdown-item:focus::before,*#top_menu .dropdown-menu .dropdown-item:hover::before,
+
+
+header .dropdown-menu .dropdown-item:hover::before,
+header .dropdown-menu .dropdown-item:focus::before,
+#top_menu .dropdown-menu .dropdown-item:hover::before,
 #top_menu .dropdown-menu .dropdown-item:focus::before {
-    height: 52%;
+    height: 54%;
 }
 
 
-/* Active dropdown option */
+/* Opción activa del submenú */
 
-header .*ropdown-menu .dropdown-item.active*
-header .*ropdown-menu .*ropdown-item[aria-current="page"],*#top_menu .dropdown-menu .dropdown*item.active,
-#top_menu .dropdown-m*nu .dropdown-item[aria-current="page"] {
-    color: var(--kt-white) !*mportant;
+header .dropdown-menu .dropdown*item.active,
+header .dropdown-menu*.dropdown-item[aria-current="page"],
+#top_menu .dropdown-menu .dropdo*n-item.active,
+#top_menu .dropdown*menu .dropdown-item[aria-current="page"] {
+    color: var(--kt-white)*!important;
 
-    padding-left: 25px *important;
+    padding-left: 27p* !important;
 
-    background: linear*gradient(
+    background-color* var(--kt-dropdown) !important;
+
+ *  background-image: linear-gradien*(
         110deg,
-        *gba(247, 67, 152, 0.18),
-        r*ba(98, 124, 231, 0.16)
-    ) !impo*tant;
+        rgba(247* 67, 152, 0.20),
+        rgba(98, *24, 231, 0.17)
+    ) !important;
 
-    border-color: rgba(98, *24, 231, 0.32) !important;
+    border-color: rgba(247, 67, 152, 0.34) !important;
 
-    bo*-shadow:
-        inset 3px 0 0 var*--kt-pink),
-        inset 0 1px 0 rgba(255, 255, 255, 0.07) !important;
+    box-shadow:
+        inset 3px 0 0 var(--kt-pink),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 0 16px rgba(247, 67, 152, 0.10) !important;
 }
 
 
@@ -342,11 +408,11 @@ header .dropdown-menu .dropdown-item.active::before,
 header .dropdown-menu .dropdown-item[aria-current="page"]::before,
 #top_menu .dropdown-menu .dropdown-item.active::before,
 #top_menu .dropdown-menu .dropdown-item[aria-current="page"]::before {
-    height: 52%;
+    height: 54%;
 }
 
 
-/* Prevent main navigation line inside dropdown options */
+/* Evita la línea horizontal del menú principal en submenús */
 
 header .dropdown-menu .dropdown-item::after,
 #top_menu .dropdown-menu .dropdown-item::after {
@@ -354,10 +420,9 @@ header .dropdown-menu .dropdown-item::after,
 }
 
 
-/* Dropdown arrow */
+/* Flecha dropdown */
 
-header .dropdown-toggle::after,
-#top_menu .dropdown-toggle::after {
+header .dropdown-toggle::after,*#top_menu .dropdown-toggle::after *
     border-top-color: var(--kt-blue) !important;
 
     transition:
@@ -381,8 +446,6 @@ header .dropdown-toggle[aria-expanded="true"]::after,
    5. HEADER PROTECTIONS
    ========================================================== */
 
-/* Protect logo */
-
 header .navbar-brand,
 header .navbar-brand:hover {
     color: inherit !important;
@@ -398,96 +461,69 @@ header .navbar-brand::after {
 }
 
 
-/* Protect header buttons */
-
-header .btn,
-header a.btn,
-header .btn:hover,
-header a.btn:hover {
-    border-radius: inherit;
-}
-
-
-header .btn::after,
-header a.btn::after {
-    display: none !important;
-}
-
-
 /* ==========================================================
    6. ODOO TABS
    ========================================================== */
 
-/* Prevent horizontal scrollbar */
-
 .s_tabs_nav,
-.s_tabs_nav .nav {
-    overflow-x: hidden !important;
-    scrollbar-width: none;
+.s_tabs_nav .nav {*    overflow-x: hidden !important;*    scrollbar-width: none;
 }
 
 
-.s_tabs_nav .nav::-webkit-scrollbar {
-    display: none;
+.s_*abs_nav .nav::-webkit-scrollbar {
+*   display: none;
 }
 
 
-.s_tabs_nav .nav-link {
-    position: relative;
-    isolation: isolate;
+.s_tabs_nav *nav-link {
+    position: relative;*    isolation: isolate;
 
-    padding: 12px 18px !important;
+    paddi*g: 12px 18px !important;
 
-    border: 1px solid transparent !important;
-    border-radius: 9px !important;
+    bord*r: 1px solid transparent !importan*;
+    border-radius: 9px !importan*;
 
     transition:
-        color var(--kt-transition),
-        background-color var(--kt-transition),
-        border-color var(--kt-transition),
-        box-shadow var(--kt-transition) !important;
+        color v*r(--kt-transition),
+        backgr*und-color var(--kt-transition),
+  *     border-color var(--kt-transit*on),
+        box-shadow var(--kt-t*ansition) !important;
 }
 
 
-/* Tab light indicator */
-
-.s_tabs_nav .nav-link::before {
-    content: "";
+.s_tabs_*av .nav-link::before {
+    content* "";
 
     position: absolute;
-    left: 6px;
+    *eft: 6px;
     top: 50%;
 
-    width: 3px;
+    width* 3px;
     height: 0;
 
-    border-radius: 999px;
+    border-r*dius: 999px;
 
-    background: linear-gradient(
+    background: line*r-gradient(
         180deg,
-        var(--kt-pink),
-        var(--kt-blue)
+      * var(--kt-pink),
+        var(--kt-*lue)
     );
 
-    transform: translateY(-50%);
+    transform: transl*teY(-50%);
 
     box-shadow:
-        0 0 8px rgba(247, 67, 152, 0.55),
-        0 0 16px rgba(98, 124, 231, 0.25);
+      * 0 0 8px rgba(247, 67, 152, 0.55),*        0 0 16px rgba(98, 124, 231* 0.25);
 
-    transition: height var(--kt-transition);
+    transition: height va*(--kt-transition);
 }
 
 
-/* Tab hover */
-
-.s_tabs_nav .nav-link:hover:not(.active) {
-    color: var(--kt-white) !important;
-
+.s_tabs_nav*.nav-link:hover:not(.active) {
+   *color: var(--kt-white) !important;*
     background: linear-gradient(
-        110deg,
-        rgba(247, 67, 152, 0.09),
-        rgba(98, 124, 231, 0.07)
+*       110deg,
+        rgba(247, 6*, 152, 0.09),
+        rgba(98, 124* 231, 0.07)
     ) !important;
 
     border-color: rgba(98, 124, 231, 0.20) !important;
@@ -502,8 +538,6 @@ header a.btn::after {
     height: 55%;
 }
 
-
-/* Active tab */
 
 .s_tabs_nav .nav-link.active {
     color: var(--kt-white) !important;
@@ -521,55 +555,49 @@ header a.btn::after {
    ========================================================== */
 
 .accordion-item {
-    position: relative;
-    overflow: hidden;
-
-    border-radius: 10px !important;
+    positi*n: relative;
+    overflow: hidden;*
+    border-radius: 10px !importan*;
 
     transition:
-        background-color var(--kt-transition),
-        border-color var(--kt-transition),
-        box-shadow var(--kt-transition) !important;
+        backgro*nd-color var(--kt-transition),
+   *    border-color var(--kt-transiti*n),
+        box-shadow var(--kt-tr*nsition) !important;
 }
 
 
-.accordion-button {
+.accordio*-button {
     position: relative;
-    z-index: 1;
+*   z-index: 1;
 
-    border-radius: 10px !important;
+    border-radius:*10px !important;
 
     transition:
-        color var(--kt-transition),
-        background-color var(--kt-transition),
-        box-shadow var(--kt-transition) !important;
+*       color var(--kt-transition),*        background-color var(--kt-*ransition),
+        box-shadow var*--kt-transition) !important;
 }
 
 
-/* Accordion hover */
+.*ccordion-item:hover .accordion-but*on {
+    color: var(--kt-white) !i*portant;
 
-.accordion-item:hover .accordion-button {
-    color: var(--kt-white) !important;
-
-    background: linear-gradient(
+    background: linear-g*adient(
         110deg,
-        rgba(247, 67, 152, 0.10),
-        rgba(98, 124, 231, 0.07),
-        rgba(40, 215, 192, 0.03)
-    ) !important;
+        rg*a(247, 67, 152, 0.10),
+        rgb*(98, 124, 231, 0.07),
+        rgba*40, 215, 192, 0.03)
+    ) !importa*t;
 
     box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.07),
-        0 10px 24px rgba(0, 0, 0, 0.12) !important;
+        inset * 1px 0 rgba(255, 255, 255, 0.07),
+*       0 10px 24px rgba(0, 0, 0, 0*12) !important;
 }
 
 
-/* Accordion light indicator */
-
-.accordion-button::before {
+.accordion-but*on::before {
     content: "";
 
-    position: absolute;
+   *position: absolute;
     left: 5px;
     top: 50%;
 
@@ -600,8 +628,6 @@ header a.btn::after {
 }
 
 
-/* Open accordion */
-
 .accordion-button:not(.collapsed) {
     color: var(--kt-pink) !important;
 
@@ -616,8 +642,6 @@ header a.btn::after {
         0 8px 20px rgba(0, 0, 0, 0.12) !important;
 }
 
-
-/* Accordion arrow */
 
 .accordion-button::after {
     transition:
@@ -655,8 +679,6 @@ header a.btn::after {
         contrast(94%);
 }
 
-
-/* Accordion content reveal */
 
 .accordion-collapse.show .accordion-body {
     animation: ktAccordionReveal 0.40s ease both;
@@ -704,8 +726,6 @@ a.btn:not(.dropdown-toggle):hover {
         0 0 30px rgba(98, 124, 231, 0.08) !important;
 }
 
-
-/* Button reflection */
 
 .btn:not(.dropdown-toggle)::before,
 a.btn:not(.dropdown-toggle)::before {
@@ -847,6 +867,8 @@ button:focus-visible,
 
     header .dropdown-menu,
     #top_menu .dropdown-menu {
+        background-color: var(--kt-dropdown) !important;
+
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
     }
