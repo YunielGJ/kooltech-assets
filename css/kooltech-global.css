@@ -767,3 +767,40 @@ button:focus-visible,
         animation-iteration-count:1!important;
     }
 }
+/* =====================================================
+   CONNECTED DROPDOWN
+===================================================== */
+
+#top_menu > .dropdown{
+    position:relative;
+}
+
+#top_menu > .dropdown:hover > .nav-link,
+#top_menu > .dropdown.show > .nav-link,
+#top_menu > .dropdown > .nav-link[aria-expanded="true"]{
+
+    border-bottom-left-radius:0 !important;
+    border-bottom-right-radius:0 !important;
+
+    border-bottom-color:transparent !important;
+
+    z-index:1002;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(98,124,231,.14),
+            rgba(3,8,24,.98)
+        ) !important;
+}
+
+#top_menu > .dropdown > .dropdown-menu{
+
+    margin-top:-1px !important;
+
+    border-top-left-radius:0 !important;
+
+    box-shadow:
+        0 24px 48px rgba(0,0,0,.35),
+        0 0 20px rgba(98,124,231,.10) !important;
+}
